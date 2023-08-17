@@ -25,7 +25,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { FormComponent } from './components/form/form.component';
 import { UserSearchFieldComponent } from './components/user-search-field/user-search-field.component';
 import { UserSingleViewComponent } from './components/user-single-view/user-single-view.component';
-import { UserViewPageComponent } from './pages/user-view-page/user-view-page.component';
+import { UserViewPageComponent } from './pages/users/user-view-page/user-view-page.component';
 
 @NgModule({
   declarations: [

@@ -4,7 +4,7 @@ import { PostListPageComponent } from './pages/posts/post-list-page/post-list-pa
 import { UserListPageComponent } from './pages/users/user-list-page/user-list-page.component';
 import { UserCreatePageComponent } from './pages/users/user-create-page/user-create-page.component';
 import { PostCreatePageComponent } from './pages/posts/post-create-page/post-create-page.component';
-import { UserViewPageComponent } from './pages/user-view-page/user-view-page.component';
+import { UserViewPageComponent } from './pages/users/user-view-page/user-view-page.component';
 
 const routes: Routes = [
     { path: 'users',        component: UserListPageComponent },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-create-page',
@@ -8,13 +8,19 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserCreatePageComponent implements OnInit {
 
+    constructor(
+        private route: ActivatedRoute
+    ) {}
+
     editId?: number;
 
     ngOnInit(): void {
-        if (window.location.search) {
-            const params = new URLSearchParams(window.location.search);
-            this.editId = Number(params.get('editId'));
-        }
+        this.route.queryParamMap.subscribe(params => {
+            const editIdParam = params.get('editId');
+            if (editIdParam) {
+                this.editId = +editIdParam;
+            }
+        });
     }
 
 }

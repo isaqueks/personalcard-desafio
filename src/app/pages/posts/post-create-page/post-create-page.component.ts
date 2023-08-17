@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-post-create-page',
@@ -9,11 +10,19 @@ export class PostCreatePageComponent implements OnInit {
 
     editId?: number;
 
+    constructor(
+        private route: ActivatedRoute,
+    ) { }
+
     ngOnInit(): void {
-        if (window.location.search) {
-            const params = new URLSearchParams(window.location.search);
-            this.editId = Number(params.get('editId'));
-        }
+
+        this.route.queryParamMap.subscribe(params => {
+            const idParam = params.get('editId');
+            if (idParam) {
+                this.editId = +idParam;
+            }
+        });
+
     }
 
 

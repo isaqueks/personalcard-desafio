@@ -1,33 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostCreatePageComponent } from './post-create-page.component';
+import { UserViewPageComponent } from './user-view-page.component';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { MockComponent } from 'ng-mocks';
-import { PostFormComponent } from 'src/app/components/post-form/post-form.component';
+import { UserSingleViewComponent } from 'src/app/components/user-single-view/user-single-view.component';
 
-describe('PostCreatePageComponent', () => {
-    let component: PostCreatePageComponent;
-    let fixture: ComponentFixture<PostCreatePageComponent>;
+describe('UserViewPageComponent', () => {
+    let component: UserViewPageComponent;
+    let fixture: ComponentFixture<UserViewPageComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [
-                PostCreatePageComponent,
-                MockComponent(PostFormComponent)
+                UserViewPageComponent,
+                MockComponent(UserSingleViewComponent)
             ],
             providers: [
                 {
                     provide: ActivatedRoute,
                     useValue: {
                         queryParamMap: of(new Map(Object.entries({
-                            editId: 999,
+                            id: 777,
                         }))),
                     },
                 },
             ]
         });
-        fixture = TestBed.createComponent(PostCreatePageComponent);
+        fixture = TestBed.createComponent(UserViewPageComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
@@ -36,7 +36,7 @@ describe('PostCreatePageComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should set editId', () => {
-        expect(component.editId).toBe(999);
+    it('should set userId', () => {
+        expect(component.userId).toBe(777);
     });
 });
