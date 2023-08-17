@@ -1,13 +1,28 @@
 
 <nav class="navbar">
-    <a routerLink="/posts" routerLinkActive="current" class="nav-item">
+    <a routerLink="/posts" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current" class="nav-item">
         <span>
             Postagens
         </span>
     </a>
-    <a routerLink="/users" routerLinkActive="current" class="nav-item">
+    <a routerLink="/posts/create" routerLinkActive="current" class="nav-item">
+        <span>
+            Criar postagem
+        </span>
+    </a>
+    <a routerLink="/users" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current" class="nav-item">
         <span>
             Usuários
+        </span>
+    </a>
+    <a routerLink="/users/create" routerLinkActive="current" class="nav-item">
+        <span>
+            Criar usuário
+        </span>
+    </a>
+    <a routerLink="/users/view" routerLinkActive="current" class="nav-item invisible-nav">
+        <span>
+            Ver usuário
         </span>
     </a>
 </nav>

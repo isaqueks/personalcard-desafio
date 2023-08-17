@@ -6,7 +6,7 @@
         {{ post?.body }}
     </blockquote>
     <div class="post-header">
-        <app-entity-action>
+        <app-entity-action url="/users/view" [queryParams]="{ id: post?.user_id || -1}">
             Ver usuário
         </app-entity-action>
         <app-entity-action url="/posts/create" [queryParams]="{ editId: post?.id || -1}">

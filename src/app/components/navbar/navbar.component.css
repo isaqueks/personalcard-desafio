@@ -18,6 +18,12 @@
     color: black;
 }
 
+.invisible-nav:not(.current) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .nav-item.current {
     border: 2px dashed gray;
 }
