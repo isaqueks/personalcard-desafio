@@ -12,6 +12,8 @@ const routes: Routes = [
     { path: 'users/view', component: UserViewPageComponent },
     { path: 'posts',        component: PostListPageComponent },
     { path: 'posts/create', component: PostCreatePageComponent },
+
+    { path: '',   redirectTo: '/posts', pathMatch: 'full' }
 ];
 
 @NgModule({

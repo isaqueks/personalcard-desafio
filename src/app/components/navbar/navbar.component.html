@@ -10,7 +10,7 @@
             <div></div>
         </div>
     </div>
-    <nav class="navbar">
+    <nav class="navbar" (click)="opened = false">
         <a routerLink="/posts" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current" class="nav-item">
             <span>
                 Postagens
