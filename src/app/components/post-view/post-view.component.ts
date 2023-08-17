@@ -12,12 +12,14 @@ export class PostViewComponent {
 
     @Output() edit = new EventEmitter<number>();
     @Output() delete = new EventEmitter<number>();
+    buzy = false;
 
     editPost(id: number) {
         this.edit.emit(id);
     }
 
     deletePost(id: number) {
+        this.buzy = true;
         this.delete.emit(id);
     }
 

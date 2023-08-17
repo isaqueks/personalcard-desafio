@@ -13,11 +13,14 @@ export class UserViewComponent {
     @Output() edit = new EventEmitter<number>();
     @Output() delete = new EventEmitter<number>();
 
+    buzy = false;
+
     editUser(id: number) {
         this.edit.emit(id);
     }
 
     deleteUser(id: number) {
+        this.buzy = true;
         this.delete.emit(id);
     }
 
