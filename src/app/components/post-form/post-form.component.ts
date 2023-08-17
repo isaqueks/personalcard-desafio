@@ -21,33 +21,37 @@ export class PostFormComponent implements OnInit {
     constructor(
         private postService: PostService,
         private userService: UserService
-    ) {}
+    ) { }
 
     ngOnInit(): void {
         if (this.editId !== undefined) {
             this.loading = true;
             this.postService.fetchById(this.editId)
-            .subscribe(post => {
-                
-                this.userService.fetchById(post.user_id)
-                .subscribe(user => {
+                .subscribe({
+                    next: post => {
+                        this.userService.fetchById(post.user_id)
+                            .subscribe({
+                                next: user => {
+                                    this.title = post.title;
+                                    this.body = post.body;
+                                    this.user = user;
+                                    this.loading = false;
+                                },
+                                error: error => {
+                                    console.error(error);
+                                    alert('Erro ao carregar usuário');
+                                    window.location.href = '/posts';
+                                    this.loading = false;
+                                }
+                            })
 
-                    this.title = post.title;
-                    this.body = post.body;
-                    this.user = user;
-
-                    
-                }, error => {
-                    console.error(error);
-                    alert('Erro ao carregar usuário');
-                    window.location.href = '/posts';
-                }, () => this.loading = false)
-
-            }, error => {
-                console.error(error);
-                alert('Erro ao carregar post');
-                window.location.href = '/posts';
-            });
+                    },
+                    error: error => {
+                        console.error(error);
+                        alert('Erro ao carregar post');
+                        window.location.href = '/posts';
+                    }
+                });
         }
     }
 
@@ -68,13 +72,17 @@ export class PostFormComponent implements OnInit {
 
         const req = this.editId ? this.postService.updateById(this.editId, post) : this.postService.create(post);
 
-        req.subscribe(null, error => {
-            console.error(error);
-            alert('Erro ao salvar post');
-        }, () => {
-            this.loading = false;
-            window.location.href = '/posts'
-        });
+        req.subscribe({
+            next: () => {
+                window.location.href = '/posts';
+                this.loading = false;
+            },
+            error: error => {
+                console.error(error);
+                alert('Erro ao salvar post');
+                this.loading = false;
+            }
+        })
     }
 
 }

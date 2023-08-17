@@ -29,17 +29,21 @@ export class UserFormComponent implements OnInit {
         if (this.editId !== undefined) {
             this.loading = true;
             this.service.fetchById(this.editId)
-            .subscribe(user => {
-                this.name = user.name;
-                this.email = user.email;
-                this.gender = user.gender;
-                this.status = user.status;
-                this.loading = false;
-            }, error => {
-                console.error(error);
-                alert('Erro ao carregar usuário');
-                window.location.href = '/users';
-            });
+                .subscribe({
+                    next: user => {
+                        this.name = user.name;
+                        this.email = user.email;
+                        this.gender = user.gender;
+                        this.status = user.status;
+                        this.loading = false;
+                    },
+                    error: error => {
+                        console.error(error);
+                        alert('Erro ao carregar usuário');
+                        window.location.href = '/users';
+                        this.loading = false;
+                    }
+                });
         }
     }
 
@@ -64,10 +68,17 @@ export class UserFormComponent implements OnInit {
             request = this.service.create(user);
         }
 
-        request.subscribe(() => {
-            this.loading = false;
-            window.location.href = '/users';
-        })
+        request.subscribe({
+            next: () => {
+                window.location.href = '/users';
+                this.loading = false;
+            },
+            error: error => {
+                console.error(error);
+                alert('Erro ao salvar usuário');
+                this.loading = false;
+            }
+        });
 
     }
 

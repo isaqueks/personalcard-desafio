@@ -12,11 +12,14 @@ export class PaginatedDataComponent {
 
     @Output() setPageNumber = new EventEmitter<number>();
 
-    @ViewChild('.navigation') navElement?: ElementRef<HTMLDivElement>;
+    @ViewChild('contentView') contentView?: ElementRef<HTMLDivElement>;
 
 
     setPage(num: number) {
         this.setPageNumber.emit(num);
+        this.contentView?.nativeElement.scroll({
+            top: 0
+        })
     }
 
 }

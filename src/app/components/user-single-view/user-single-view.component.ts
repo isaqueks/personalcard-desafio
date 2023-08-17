@@ -22,15 +22,17 @@ export class UserSingleViewComponent {
             return;
         }
 
-        this.userService.fetchById(this.userId).subscribe(
-            (user: User) => {
+        this.userService.fetchById(this.userId)
+        .subscribe({
+            next: user => {
                 this.user = user;
             },
-            error => {
-                console.log(error);
-                alert('Não foi possível carregar o usuário.');
+            error: error => {
+                console.error(error);
+                alert('Erro ao carregar usuário');
+                window.location.href = '/users';
             }
-        );
+        });
     }
 
 }
