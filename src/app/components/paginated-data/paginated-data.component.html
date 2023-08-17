@@ -2,7 +2,7 @@
     <div class="content">
         <ng-content></ng-content>
     </div>
-    <div class="navigation">
+    <div class="navigation" #navElement>
         <ng-container *ngIf="page">
             <button [disabled]="page.page <= 1" (click)="setPage(page.page-1)">Anterior</button>
             Página <span>{{page.page}}</span> de <span>{{page.totalPages}}</span>&nbsp;

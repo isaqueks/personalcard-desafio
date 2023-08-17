@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import EntityPage from 'src/app/entities/EntityPage';
 
 @Component({
@@ -11,6 +11,8 @@ export class PaginatedDataComponent {
     @Input() page?: EntityPage<any>;
 
     @Output() setPageNumber = new EventEmitter<number>();
+
+    @ViewChild('.navigation') navElement?: ElementRef<HTMLDivElement>;
 
 
     setPage(num: number) {

@@ -21,7 +21,7 @@ export abstract class GorestEntityService<T extends BaseEntity> extends EntitySe
         super();
     }
 
-    public override fetch(page: number, pageSize: number, query?: EntityQuery<T>): Observable<EntityPage<T>> {
+    protected getParams(page: number, pageSize: number, query?: EntityQuery<T>): HttpParams {
         let params = new HttpParams()
             .set('page', page.toString())
             .set('per_page', pageSize.toString());
@@ -39,6 +39,12 @@ export abstract class GorestEntityService<T extends BaseEntity> extends EntitySe
                 }
             }
         }
+
+        return params;
+    }
+
+    public override fetch(page: number, pageSize: number, query?: EntityQuery<T>): Observable<EntityPage<T>> {
+        const params = this.getParams(page, pageSize, query);
 
         return this.http.get<T[]>(this.baseEndpoint, { params, observe: 'response', headers: { 'Authorization': `Bearer ${this.token}` }  })
             .pipe(map(res => {

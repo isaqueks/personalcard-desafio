@@ -3,7 +3,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 30px;
+    grid-template-rows: 1fr 40px;
 }
 
 .content {
@@ -12,6 +12,6 @@
 }
 
 .navigation {
-    line-height: 30px;
+    line-height: 40px;
     text-align: center;
 }

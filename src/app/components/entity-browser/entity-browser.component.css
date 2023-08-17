@@ -9,3 +9,19 @@
 .content-section {
     height: 100%;
 }
+
+@media (max-width: 900px) {
+    .content-browser {
+        grid-template-columns: 100%;
+        grid-template-rows: auto 1fr;
+    }
+
+    .content-section {
+        order: 1;
+    }
+
+    .filter-section {
+        order: -1;
+    }
+
+}

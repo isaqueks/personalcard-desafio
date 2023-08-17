@@ -1,5 +1,4 @@
 import { Component, ContentChildren, EventEmitter, Input, Output } from '@angular/core';
-import EntityBrowser from '../EntityBrowser';
 import BaseEntity from 'src/app/entities/BaseEntity';
 import EntityPage from 'src/app/entities/EntityPage';
 import { Subscription } from 'rxjs';
@@ -11,7 +10,7 @@ import EntityQuery from 'src/app/entities/EntityQuery';
   templateUrl: './entity-browser.component.html',
   styleUrls: ['./entity-browser.component.css']
 })
-export class EntityBrowserComponent implements EntityBrowser<BaseEntity> {
+export class EntityBrowserComponent {
 
     entityPage?: EntityPage<BaseEntity>;
     pageNumber: number = 1;

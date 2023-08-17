@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import EntityBrowser from '../EntityBrowser';
 import Post from 'src/app/entities/Post';
 import EntityQuery from 'src/app/entities/EntityQuery';
 import { PostService } from 'src/app/services/post.service';

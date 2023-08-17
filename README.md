@@ -1,12 +1,5 @@
- - [X] Navegação usuários
- - [X] Criar usuário
- - [X] Editar usuário
- - [X] Deletar usuário
-
- - [X] Navegação post
- - [X] Criar post
- - [ ] Editar post
- - [ ] Deletar post
-
- - [ ] Design
- - [ ] Testes unitários
+# Configurar chave da API
+Criar o arquivo `src/env.ts` com o seguinte conteúdo:
+```typescript
+export const API_KEY = 'CHAVE DA API!';
+```
