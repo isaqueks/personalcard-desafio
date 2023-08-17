@@ -5,5 +5,5 @@
                             (edit)="editEntity($event)"></app-post-view>
         </div>
     </ng-container>
-    <app-filter filter [filters]="[{ name: 'title', label: 'Título' }]" (onSubmit)="applyFilter($event)"></app-filter>
+    <app-filter filter [filters]="[{ name: 'title', label: 'Título' }, { name: 'user_id', label: 'Usuário', type: 'user_id' }]" (onSubmit)="applyFilter($event)"></app-filter>
 </app-entity-browser>

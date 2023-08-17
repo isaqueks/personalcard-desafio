@@ -4,7 +4,7 @@ import EntityQuery from 'src/app/entities/EntityQuery';
 interface Filter {
     name: string;
     label: string;
-    type?: 'string' | 'number' | 'boolean';
+    type?: 'string' | 'number' | 'user_id';
 }
 
 @Component({
@@ -21,7 +21,8 @@ export class FilterComponent {
     currentFilter: EntityQuery<any> = {};
     currentTimeoutHandler?: number;
 
-    filterChange(name: string, value: string) {
+    filterChange(name: string, value?: string | number) {
+        value = String(value || '');
         this.currentFilter[name] = value.trim() || undefined;
 
         if (this.currentTimeoutHandler !== undefined) {

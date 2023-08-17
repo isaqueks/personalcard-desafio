@@ -69,12 +69,6 @@ export class UserFormComponent implements OnInit {
             window.location.href = '/users';
         })
 
-        // console.log({
-        //     name,
-        //     email,
-        //     gender,
-        //     status
-        // })
     }
 
 }

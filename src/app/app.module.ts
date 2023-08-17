@@ -24,6 +24,7 @@ import { EntityBrowserComponent } from './components/entity-browser/entity-brows
 import { SkeletonPlaceholderComponent } from './components/skeleton-placeholder/skeleton-placeholder.component';
 import { ButtonComponent } from './components/button/button.component';
 import { FormComponent } from './components/form/form.component';
+import { UserSearchFieldComponent } from './components/user-search-field/user-search-field.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { FormComponent } from './components/form/form.component';
     SkeletonPlaceholderComponent,
     ButtonComponent,
     FormComponent,
+    UserSearchFieldComponent,
   ],
   imports: [
     BrowserModule,

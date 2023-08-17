@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import User from 'src/app/entities/User';
 import { PostService } from 'src/app/services/post.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-post-form',
@@ -12,12 +14,13 @@ export class PostFormComponent implements OnInit {
 
     title: string = '';
     body: string = '';
-    userId: string = '';
+    user?: User;
 
     loading: boolean = false;
 
     constructor(
         private postService: PostService,
+        private userService: UserService
     ) {}
 
     ngOnInit(): void {
@@ -25,10 +28,21 @@ export class PostFormComponent implements OnInit {
             this.loading = true;
             this.postService.fetchById(this.editId)
             .subscribe(post => {
-                this.title = post.title;
-                this.body = post.body;
-                this.userId = String(post.user_id);
-                this.loading = false;
+                
+                this.userService.fetchById(post.user_id)
+                .subscribe(user => {
+
+                    this.title = post.title;
+                    this.body = post.body;
+                    this.user = user;
+
+                    
+                }, error => {
+                    console.error(error);
+                    alert('Erro ao carregar usuário');
+                    window.location.href = '/posts';
+                }, () => this.loading = false)
+
             }, error => {
                 console.error(error);
                 alert('Erro ao carregar post');
@@ -40,10 +54,14 @@ export class PostFormComponent implements OnInit {
     submitPost(event: SubmitEvent) {
         event.preventDefault();
 
+        if (this.user === undefined) {
+            return;
+        }
+
         const post = {
             title: this.title,
             body: this.body,
-            user_id: +this.userId,
+            user_id: this.user.id,
         };
 
         this.loading = true;

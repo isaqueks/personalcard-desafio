@@ -1,0 +1,4 @@
+<app-field list="user-list" [label]="label" [value]="currentValue" (valueChange)="setCurrentValue($event)" (blur)="onBlur()" />
+<datalist id="user-list">
+    <option *ngFor="let user of suggestedUsers" [value]="user.name">{{user.id}}</option>
+</datalist>

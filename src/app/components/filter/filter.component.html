@@ -3,8 +3,7 @@
         Filtros
     </div>
     <div *ngFor="let filter of filters">
-        <!-- <label>{{ filter.label }}</label>
-        <input [placeholder]="filter.label" type="text" (keyup)="filterChange(filter.name, $any($event.target).value)"> -->
-        <app-field [label]="filter.label" (valueChange)="filterChange(filter.name, $event)" />
+        <app-field *ngIf="filter.type !== 'user_id'" [label]="filter.label" (valueChange)="filterChange(filter.name, $event)" />
+        <app-user-search-field *ngIf="filter.type === 'user_id'" [label]="filter.label" (userChange)="filterChange(filter.name, $event?.id)" />
     </div>
 </form>

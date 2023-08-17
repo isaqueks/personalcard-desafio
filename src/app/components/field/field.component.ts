@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import User from 'src/app/entities/User';
 
 @Component({
   selector: 'app-field',
@@ -7,14 +8,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class FieldComponent {
 
+    @Input() list = '';
     @Input() label = '';
     @Input() type = 'text';
     @Input() value = '';
     @Input() dropdownValues: { [key: string]: string | number } = {}
     @Output() valueChange = new EventEmitter<string>();
+    @Output() blur = new EventEmitter<void>();
 
     setValue(value: string) {
-        console.log(value)
         this.value = value;
         this.valueChange.emit(this.value);
     }
@@ -23,6 +25,8 @@ export class FieldComponent {
         return Object.keys(this.dropdownValues);
     }
 
-
+    onBlur() {
+        this.blur.emit();
+    }
 
 }

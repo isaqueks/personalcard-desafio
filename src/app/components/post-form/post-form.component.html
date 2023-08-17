@@ -3,7 +3,7 @@
 
     <div body>
         <app-field [(value)]="title" label="Título" />
-        <app-field [(value)]="userId" label="ID Usuário" type="number" />
+        <app-user-search-field [(user)]="user" />
         <app-field [(value)]="body" label="Mensagem" type="textarea" />
     </div>
 
@@ -13,7 +13,7 @@
         </app-button>
 
         <a routerLink="/posts">
-            <app-button type="submit">
+            <app-button type="button">
                 Voltar
             </app-button>
         </a>

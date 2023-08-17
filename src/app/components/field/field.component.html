@@ -3,15 +3,16 @@
     <ng-container *ngIf="['text', 'number', 'email'].includes(type)">
         <input 
             [placeholder]="label" 
-            id="field" 
             #field 
+            [attr.list]="list"
             [type]="type" 
             [ngModel]="value"
             (ngModelChange)="setValue($event)"
+            (blur)="onBlur()"
         />
     </ng-container>
     <ng-container *ngIf="type === 'dropdown'">
-        <select #field id="field">
+        <select #field (blur)="onBlur()" [ngModel]="value" (ngModelChange)="setValue($event)">
             <ng-container *ngFor="let option of dropdownKeys()">
                 <option [value]="option">{{ dropdownValues[option] }}</option>
             </ng-container>
@@ -20,8 +21,8 @@
     <ng-container *ngIf="type === 'textarea'">
         <textarea 
             [placeholder]="label" 
-            id="field" 
             #field 
+            (blur)="onBlur()"
             [ngModel]="value"
             (ngModelChange)="setValue($event)"
         ></textarea>
