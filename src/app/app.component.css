@@ -8,3 +8,10 @@
     margin: auto;
     box-shadow: 0px 0px 6px gray;
 }
+
+@media (max-width: 900px) {
+    .app-container {
+        grid-template-columns: 100%;
+        grid-template-rows: auto 0 1fr;
+    }
+}

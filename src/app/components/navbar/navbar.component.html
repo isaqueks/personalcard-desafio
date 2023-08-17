@@ -1,28 +1,40 @@
-
-<nav class="navbar">
-    <a routerLink="/posts" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current" class="nav-item">
-        <span>
-            Postagens
-        </span>
-    </a>
-    <a routerLink="/posts/create" routerLinkActive="current" class="nav-item">
-        <span>
-            Criar postagem
-        </span>
-    </a>
-    <a routerLink="/users" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current" class="nav-item">
-        <span>
-            Usuários
-        </span>
-    </a>
-    <a routerLink="/users/create" routerLinkActive="current" class="nav-item">
-        <span>
-            Criar usuário
-        </span>
-    </a>
-    <a routerLink="/users/view" routerLinkActive="current" class="nav-item invisible-nav">
-        <span>
-            Ver usuário
-        </span>
-    </a>
-</nav>
+<div class="navbar-container {{ opened ? 'opened' : '' }}">
+    <div class="navbar-menu">
+        <div></div>
+        <div>
+            <span>Menu</span>
+        </div>
+        <div class="hamburguer" (click)="opened = !opened">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <a routerLink="/posts" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current" class="nav-item">
+            <span>
+                Postagens
+            </span>
+        </a>
+        <a routerLink="/posts/create" routerLinkActive="current" class="nav-item">
+            <span>
+                Criar postagem
+            </span>
+        </a>
+        <a routerLink="/users" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="current" class="nav-item">
+            <span>
+                Usuários
+            </span>
+        </a>
+        <a routerLink="/users/create" routerLinkActive="current" class="nav-item">
+            <span>
+                Criar usuário
+            </span>
+        </a>
+        <a routerLink="/users/view" routerLinkActive="current" class="nav-item invisible-nav">
+            <span>
+                Ver usuário
+            </span>
+        </a>
+    </nav>
+</div>
