@@ -1,0 +1,8 @@
+<app-entity-browser (onLoadEntities)="load($event)" [service]="service" [query]="filter" [refreshid]="refreshId">
+    <ng-container display>
+        <div *ngFor="let user of users">
+            <app-user-view [user]="user" (delete)="deleteEntity($event)" (edit)="editEntity($event)"></app-user-view>
+        </div>
+    </ng-container>
+    <app-filter filter [filters]="[{ name: 'name', label: 'Nome' }, { name: 'email', label: 'E-mail' }]" (onSubmit)="applyFilter($event)"></app-filter>
+</app-entity-browser>

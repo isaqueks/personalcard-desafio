@@ -1,0 +1,17 @@
+
+.paginated-data {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 30px;
+}
+
+.content {
+    height: 100%;
+    overflow: auto;
+}
+
+.navigation {
+    line-height: 30px;
+    text-align: center;
+}

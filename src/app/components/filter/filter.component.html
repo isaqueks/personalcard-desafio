@@ -1,0 +1,10 @@
+<form class="filter">
+    <div class="header">
+        Filtros
+    </div>
+    <div *ngFor="let filter of filters">
+        <!-- <label>{{ filter.label }}</label>
+        <input [placeholder]="filter.label" type="text" (keyup)="filterChange(filter.name, $any($event.target).value)"> -->
+        <app-field [label]="filter.label" (valueChange)="filterChange(filter.name, $event)" />
+    </div>
+</form>

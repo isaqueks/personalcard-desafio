@@ -1,0 +1,22 @@
+
+.post {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 30px 1fr 25px;
+    margin: 8px;
+    padding: 18px;
+    background-color: rgb(240, 240, 240);
+}
+
+.post * {
+    overflow: hidden;
+}
+
+.post-title {
+    line-height: 30px;
+    font-size: 1.3em;
+}
+
+.post-body {
+    padding: 16px 4px;
+}

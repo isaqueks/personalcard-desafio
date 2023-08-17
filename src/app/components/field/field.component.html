@@ -1,0 +1,29 @@
+<div class="field">
+    <label for="field">{{ label }}:</label>
+    <ng-container *ngIf="['text', 'number', 'email'].includes(type)">
+        <input 
+            [placeholder]="label" 
+            id="field" 
+            #field 
+            [type]="type" 
+            [ngModel]="value"
+            (ngModelChange)="setValue($event)"
+        />
+    </ng-container>
+    <ng-container *ngIf="type === 'dropdown'">
+        <select #field id="field">
+            <ng-container *ngFor="let option of dropdownKeys()">
+                <option [value]="option">{{ dropdownValues[option] }}</option>
+            </ng-container>
+        </select>
+    </ng-container>
+    <ng-container *ngIf="type === 'textarea'">
+        <textarea 
+            [placeholder]="label" 
+            id="field" 
+            #field 
+            [ngModel]="value"
+            (ngModelChange)="setValue($event)"
+        ></textarea>
+    </ng-container>
+</div>

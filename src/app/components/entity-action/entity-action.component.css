@@ -1,0 +1,7 @@
+.entity-action {
+    margin-right: 10px;
+    color: rgb(48, 48, 48);
+    font-size: 0.9em;
+    text-decoration: underline;
+    cursor: pointer;
+}

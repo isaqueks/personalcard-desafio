@@ -1,0 +1,24 @@
+
+<app-form title="{{ editId ? 'Editar' : 'Criar' }} usuário" (submit)="submitUser($event)" class="{{ loading ? 'buzy' : '' }}">
+
+    <div body>
+        <app-field [(value)]="name" label="Nome" />
+        <app-field [(value)]="email" label="Email" type="email" />
+    
+        <app-field [(value)]="status" label="Status" type="dropdown" [dropdownValues]="{ inactive: 'Inativo', active: 'Ativo' }" />
+        <app-field [(value)]="gender" label="Gênero" type="dropdown" [dropdownValues]="{ male: 'Masculino', female: 'Feminino' }" />
+    </div>
+
+    <div footer>
+        <app-button type="submit">
+            Salvar
+        </app-button>
+
+        <a routerLink="/users">
+            <app-button type="submit">
+                Voltar
+            </app-button>
+        </a>
+    </div>
+
+</app-form>

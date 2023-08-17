@@ -1,0 +1,39 @@
+
+.user-view {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 25px;
+    padding: 18px;
+    margin: 8px;
+    background-color: rgb(240, 240, 240);
+}
+
+.user-email a {
+    color: rgb(64, 64, 64);
+    text-decoration: none;
+}
+
+.user-name {
+    margin-right: 8px;
+} 
+
+.header {
+    padding: 6px 0;
+    font-size: 1.2em;
+    /* line-height: 30px; */
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.status-active {
+    color: rgb(32, 128, 32);
+}
+
+.status-inactive {
+    color: red;
+}
+
+.user-gender {
+    display: inline-block;
+}

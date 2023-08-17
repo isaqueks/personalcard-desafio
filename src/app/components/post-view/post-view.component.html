@@ -1,0 +1,19 @@
+<div class="post">
+    <div class="post-title">
+        {{ post?.title }}
+    </div>
+    <blockquote class="post-body">
+        {{ post?.body }}
+    </blockquote>
+    <div class="post-header">
+        <app-entity-action>
+            Ver usuário
+        </app-entity-action>
+        <app-entity-action url="/posts/create" [queryParams]="{ editId: post?.id || -1}">
+            Editar
+        </app-entity-action>
+        <app-entity-action (click)="deletePost(post?.id || -1)">
+            Apagar
+        </app-entity-action>
+    </div>
+</div>

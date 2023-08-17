@@ -1,0 +1,33 @@
+<div class="user-view">
+    <div class="header">
+        <span class="user-name">
+            {{ user?.name }}
+        </span>
+        <span class="user-email">
+            <a [title]="user?.email" target="_blank" href="mailto:{{user?.email}}">
+                ({{ user?.email }})
+            </a>
+        </span>
+    </div>
+    <div class="body">
+        <div class="meta">
+            <span class="user-gender">
+                {{ user?.gender === 'male' ? 'Masculino' : 'Feminino' }}
+            </span>
+            <br>
+            <span class="user-status status-{{user?.status}}">
+                {{ user?.status === 'active' ? 'Ativo' : 'Inativo' }}
+            </span>
+        </div>
+        <div class="contact">
+        </div>
+    </div>
+    <div class="footer">
+        <app-entity-action url="/users/create" [queryParams]="{ editId: user?.id || -1}">
+            Editar
+        </app-entity-action>
+        <app-entity-action (click)="deleteUser(user?.id || -1)">
+            Apagar
+        </app-entity-action>
+    </div>
+</div>

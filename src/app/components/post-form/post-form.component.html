@@ -1,0 +1,22 @@
+
+<app-form title="{{ editId ? 'Editar' : 'Criar' }} postagem" (submit)="submitPost($event)" class="{{ loading ? 'buzy' : '' }}">
+
+    <div body>
+        <app-field [(value)]="title" label="Título" />
+        <app-field [(value)]="userId" label="ID Usuário" type="number" />
+        <app-field [(value)]="body" label="Mensagem" type="textarea" />
+    </div>
+
+    <div footer>
+        <app-button type="submit">
+            Salvar
+        </app-button>
+
+        <a routerLink="/posts">
+            <app-button type="submit">
+                Voltar
+            </app-button>
+        </a>
+    </div>
+
+</app-form>

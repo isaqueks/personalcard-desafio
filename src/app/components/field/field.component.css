@@ -1,0 +1,25 @@
+
+.field {
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 8px;
+}
+
+.field label {
+    margin-right: 8px;
+    min-width: 100px;
+}
+
+.field input, select, textarea {
+    margin: 0;
+    padding: 4px 8px;
+    flex-grow: 100;
+    width: 170px;
+}
+
+.field textarea {
+    height: 100px;
+    resize: none;
+}

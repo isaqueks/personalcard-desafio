@@ -1,0 +1,15 @@
+
+.form {
+    padding: 16px;
+    margin: auto;
+    max-width: 700px;
+}
+
+.form-header {
+    text-align: center;
+    padding: 16px 8px;
+}
+
+.form-footer {
+    text-align: left;
+}

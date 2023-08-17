@@ -1,0 +1,12 @@
+<div class="paginated-data">
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+    <div class="navigation">
+        <ng-container *ngIf="page">
+            <button [disabled]="page.page <= 1" (click)="setPage(page.page-1)">Anterior</button>
+            Página <span>{{page.page}}</span> de <span>{{page.totalPages}}</span>&nbsp;
+            <button [disabled]="page.page >= page.totalPages" (click)="setPage(page.page+1)">Próxima</button>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+
+.content-browser {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: 100%;
+    height: 100%;
+}
+
+.content-section {
+    height: 100%;
+}
