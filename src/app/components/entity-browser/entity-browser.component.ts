@@ -29,7 +29,7 @@ export class EntityBrowserComponent {
     ) {}
 
     ngOnInit(): void {
-        this.fetch();
+        this?.fetch?.();
     }
 
     ngOnChanges() {

@@ -2,8 +2,8 @@
     <label for="field">{{ label }}:</label>
     <ng-container *ngIf="['text', 'number', 'email'].includes(type)">
         <input 
-            [placeholder]="label" 
             #field 
+            [placeholder]="label" 
             [attr.list]="list"
             [type]="type" 
             [ngModel]="value"
@@ -20,8 +20,8 @@
     </ng-container>
     <ng-container *ngIf="type === 'textarea'">
         <textarea 
-            [placeholder]="label" 
             #field 
+            [placeholder]="label" 
             (blur)="onBlur()"
             [ngModel]="value"
             (ngModelChange)="setValue($event)"
