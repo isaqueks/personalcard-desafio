@@ -8,11 +8,12 @@ import Post from 'src/app/entities/Post';
 })
 export class PostViewComponent {
 
+    buzy = false;
+    
     @Input() post?: Post;
 
     @Output() edit = new EventEmitter<number>();
     @Output() delete = new EventEmitter<number>();
-    buzy = false;
 
     editPost(id: number) {
         this.edit.emit(id);

@@ -3,11 +3,16 @@ import Post from 'src/app/entities/Post';
 import EntityQuery from 'src/app/entities/EntityQuery';
 import { PostService } from 'src/app/services/post.service';
 import BaseEntity from 'src/app/entities/BaseEntity';
+import { EntityService } from 'src/app/services/entity.service';
 
 @Component({
   selector: 'app-post-browser',
   templateUrl: './post-browser.component.html',
-  styleUrls: ['./post-browser.component.css']
+  styleUrls: ['./post-browser.component.css'],
+  providers: [{
+    provide: EntityService<Post>,
+    useClass: PostService
+  }]
 })
 export class PostBrowserComponent {
 
@@ -16,7 +21,7 @@ export class PostBrowserComponent {
     refreshId = 0;
 
     constructor(
-        protected service: PostService
+        protected service: EntityService<Post>
     ) {}
 
     load(posts: BaseEntity[]): void {

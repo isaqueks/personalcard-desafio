@@ -8,12 +8,13 @@ import User from 'src/app/entities/User';
 })
 export class UserViewComponent {
 
+    buzy = false;
+    
     @Input() user?: User;
 
     @Output() edit = new EventEmitter<number>();
     @Output() delete = new EventEmitter<number>();
 
-    buzy = false;
 
     editUser(id: number) {
         this.edit.emit(id);

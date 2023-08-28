@@ -3,11 +3,16 @@ import EntityQuery from 'src/app/entities/EntityQuery';
 import User from 'src/app/entities/User';
 import { UserService } from 'src/app/services/user.service';
 import BaseEntity from 'src/app/entities/BaseEntity';
+import { EntityService } from 'src/app/services/entity.service';
 
 @Component({
-  selector: 'app-user-browser',
-  templateUrl: './user-browser.component.html',
-  styleUrls: ['./user-browser.component.css']
+    selector: 'app-user-browser',
+    templateUrl: './user-browser.component.html',
+    styleUrls: ['./user-browser.component.css'],
+    providers: [{
+        provide: EntityService<User>,
+        useClass: UserService
+    }]
 })
 export class UserBrowserComponent {
 
@@ -16,8 +21,8 @@ export class UserBrowserComponent {
     filter: EntityQuery<User> = {};
 
     constructor(
-        protected service: UserService
-    ) {}
+        protected service: EntityService<User>
+    ) { }
 
     load(users: BaseEntity[]): void {
         this.users = users as User[];
@@ -29,7 +34,7 @@ export class UserBrowserComponent {
 
     deleteEntity(id: number): void {
         this.service.deleteById(id)
-        .subscribe(() => this.refreshId++);
+            .subscribe(() => this.refreshId++);
     }
 
     editEntity(id: number): void {

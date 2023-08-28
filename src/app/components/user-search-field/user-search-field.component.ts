@@ -1,12 +1,17 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs';
 import User from 'src/app/entities/User';
+import { EntityService } from 'src/app/services/entity.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-user-search-field',
     templateUrl: './user-search-field.component.html',
-    styleUrls: ['./user-search-field.component.css']
+    styleUrls: ['./user-search-field.component.css'],
+    providers: [{
+        provide: EntityService<User>,
+        useClass: UserService
+    }]
 })
 export class UserSearchFieldComponent implements OnInit, OnChanges {
 
@@ -22,7 +27,7 @@ export class UserSearchFieldComponent implements OnInit, OnChanges {
     @Output() userChange = new EventEmitter<User | undefined>();
 
     constructor(
-        private userService: UserService
+        private userService: EntityService<User>
     ) { }
 
     ngOnInit(): void {

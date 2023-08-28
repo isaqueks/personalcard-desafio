@@ -1,16 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import User from 'src/app/entities/User';
+import { EntityService } from 'src/app/services/entity.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector: 'app-user-form',
     templateUrl: './user-form.component.html',
-    styleUrls: ['./user-form.component.css']
+    styleUrls: ['./user-form.component.css'],
+    providers: [{
+        provide: EntityService<User>,
+        useClass: UserService
+    }]
 })
 export class UserFormComponent implements OnInit {
-
-    @Input() editId?: number;
 
     name: string = '';
     email: string = '';
@@ -18,9 +21,11 @@ export class UserFormComponent implements OnInit {
     status: string = 'active';
     loading: boolean = false;
 
+    @Input() editId?: number;
+
 
     constructor(
-        private service: UserService
+        private service: EntityService<User>
     ) {
 
     }
